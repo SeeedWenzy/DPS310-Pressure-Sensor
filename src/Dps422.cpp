@@ -7,7 +7,7 @@ using namespace dps422;
 
 int16_t Dps422::measureBothOnce(float &prs, float &temp)
 {
-	measureBothOnce(prs, temp, m_prsOsr, m_tempOsr);
+	return measureBothOnce(prs, temp, m_prsOsr, m_tempOsr);
 }
 
 int16_t Dps422::measureBothOnce(float &prs, float &temp, uint8_t prs_osr, uint8_t temp_osr)
@@ -49,6 +49,7 @@ int16_t Dps422::measureBothOnce(float &prs, float &temp, uint8_t prs_osr, uint8_
 		temp = calcTemp(raw_temp);
 		return DPS__SUCCEEDED;
 	}
+	return DPS__SUCCEEDED;
 }
 
 int16_t Dps422::getContResults(float *tempBuffer,
